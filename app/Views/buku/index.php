@@ -2,6 +2,12 @@
     <div class="row">
         <div class="col">
             <h1 class="mt-2">Daftar Buku</h1>
+            <form action="" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Masukan Pencarian Data Buku"  name="cari">
+                    <button class="btn btn-outline-secondary" type="submit" name="submit">Cari</button>
+                </div>
+            </form>
             <?php if(session()->getFlashdata('pesan')) : ?>
             <div class="alert alert-success" role="alert">
                 <?= session()->getFlashdata('pesan'); ?>
@@ -19,7 +25,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $i=1;
+                    $i=1+(2*($current-1));
                     foreach($buku as $b):
                     ?>
                     <tr>
@@ -31,7 +37,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            
+            <?= $pager->links('buku', 'page_buku'); ?>
         </div>
     </div>
 </div>

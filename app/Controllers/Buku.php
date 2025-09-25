@@ -12,9 +12,18 @@ class Buku extends BaseController
 
     public function index()
     {
+        $current = $this->request->getVar('page_buku') ? $this->request->getVar('page_buku') : 1;
+        $cari = $this->request->getVar('cari');
+        if($cari){
+            $buku = $this->Bukumodel->findBuku($cari);
+        }else{
+            $buku = $this->Bukumodel;
+        }
         $data = [
             'title' => 'Daftar Buku',
-            'buku' => $this->Bukumodel->getBuku()
+            'buku' => $this->Bukumodel->paginate(2, 'buku'),
+            'pager' => $this->Bukumodel->pager,
+            'current' => $current
         ];
         return view('layout/header')
             . view('buku/index', $data)

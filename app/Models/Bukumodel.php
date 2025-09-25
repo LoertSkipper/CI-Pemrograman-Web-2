@@ -15,5 +15,9 @@ class Bukumodel extends Model
         }
         return $this->where(['id_buku' => $idbuku])->first();
     }
+    public function findBuku($cari)
+    {
+        return $this->table('buku')->like('judul', $cari);
+    }
 }
 ?>

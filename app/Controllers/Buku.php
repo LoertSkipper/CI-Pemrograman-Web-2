@@ -125,7 +125,6 @@ class Buku extends BaseController
             ]
         ])) {
             $filesampul = $this->request->getFile('sampul');
-            // Cek gambar, jika tidak upload gambar, pakai sampul lama
             if ($filesampul->getError() == 4) {
                 $nmsampul = $this->request->getVar('sampulLama');
             } else {

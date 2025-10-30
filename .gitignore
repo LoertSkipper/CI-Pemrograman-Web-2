@@ -1,34 +1,62 @@
-# =========================
-# CodeIgniter 4 .gitignore
-# =========================
+# ==========================================
+# CodeIgniter 4 - Rizal Project .gitignore
+# ==========================================
 
 # Composer dependencies
 /vendor/
-composer.lock
 
-# Environment file (jangan sampai bocor)
+# Environment configuration
 .env
+.env.*
+!.env.example
 
-# CI4 writable directories
-/writable/cache/*
-/writable/logs/*
-/writable/debugbar/*
-/writable/session/*
-/writable/uploads/*
+# Writable directory (runtime-generated)
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+writable/debugbar/*
+!writable/index.html
 
-# Biarkan index.html tetap ikut repo (buat jaga folder kosong tetap ada)
-!/writable/cache/index.html
-!/writable/logs/index.html
-!/writable/debugbar/index.html
-!/writable/session/index.html
-!/writable/uploads/index.html
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
 
-# IDE / Editor
+# PHPUnit and build artifacts
+phpunit.xml
+/build/
+coverage/
+reports/
+
+# IDE & Editor settings
 .vscode/
 .idea/
-*.swp
-*.swo
+*.sublime-project
+*.sublime-workspace
 
-# OS
+# OS-generated files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Backup and archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.sql
+*.bak
+
+# Node / Frontend (if applicable)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Email config (berisi kredensial sensitif)
+app/Config/Email.php
+
+# Optional: ignore composer.lock (if shared team environment)
+# composer.lock

@@ -18,6 +18,7 @@
         <a class="nav-link <?= service('uri')->getSegment(1) == '' ? 'active' : '' ?>" href="/">Beranda</a>
         <a class="nav-link <?= service('uri')->getSegment(1) == 'buku' ? 'active' : '' ?>" href="/buku">Daftar Buku</a>
         <a class="nav-link" href="#">Daftar Anggota</a>
+        <a class="nav-link" href="/logout">logout</a>
       </div>
     </div>
   </div>
